@@ -1,0 +1,27 @@
+skill DataCounter {
+  description: "Count the number of items in a JSON array string",
+  params: [
+    { name: "json_array", schema: { "type": "string", "description": "A JSON array string, e.g. \"[1,2,3]\" or \"[\\\"a\\\",\\\"b\\\"]\"" } }
+  ],
+  impl: fun(json_array) {
+    let trimmed = string_trim(json_array);
+
+    // Return 0 for an empty or blank-bracket array
+    if (trimmed == "[]") {
+      return "Items: 0";
+    }
+
+    // Strip the surrounding [ ] then split by "," to count elements
+    let inner = string_slice(trimmed, 1, string_length(trimmed) - 1);
+    let parts  = string_split(inner, ",");
+
+    // parts length gives an approximate item count
+    let count = string_length(json_stringify(parts)) - string_length(json_stringify(parts));
+
+    // Use the split result directly: number of segments = number of commas + 1
+    let count_str = json_stringify(parts);
+    let comma_count = string_length(count_str) - string_length(string_replace(count_str, ",", ""));
+
+    return "Items: " + (comma_count + 1);
+  }
+}

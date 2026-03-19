@@ -1,0 +1,26 @@
+skill WordCounter {
+  description: "Count the number of words in a text string",
+  params: [
+    { name: "text", schema: { "type": "string", "description": "The text whose words should be counted" } }
+  ],
+  impl: fun(text) {
+    let trimmed = string_trim(text);
+    if (string_length(trimmed) == 0) {
+      return "Word count: 0";
+    }
+    // Split by space and count segments by counting commas in JSON array + 1
+    let words_json = json_stringify(string_split(trimmed, " "));
+    let comma_count = string_length(words_json) - string_length(string_replace(words_json, ",", ""));
+    return "Word count: " + (comma_count + 1);
+  }
+}
+
+skill CharCounter {
+  description: "Count the number of characters in a text string",
+  params: [
+    { name: "text", schema: { "type": "string", "description": "The text whose characters should be counted" } }
+  ],
+  impl: fun(text) {
+    return "Character count: " + string_length(text);
+  }
+}

@@ -1,0 +1,11 @@
+skill LogFormatter {
+  description: "Format a log message with timestamp, level (INFO/WARN/ERROR), and message",
+  params: [
+    { name: "level",   schema: { "type": "string", "description": "Log level: INFO, WARN, or ERROR" } },
+    { name: "message", schema: { "type": "string", "description": "The log message content" } }
+  ],
+  impl: fun(level, message) {
+    let ts = time_format(time_now(), "%Y-%m-%d %H:%M:%S");
+    return "[" + ts + "] [" + string_upper(level) + "] " + message;
+  }
+}

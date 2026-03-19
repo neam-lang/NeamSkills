@@ -1,0 +1,43 @@
+skill FindMax {
+  description: "Find the maximum value from a comma-separated list of numbers",
+  params: [
+    { name: "numbers", schema: { "type": "string", "description": "Comma-separated numbers, e.g. \"3,1,4,1,5,9\"" } }
+  ],
+  impl: fun(numbers) {
+    let parts = string_split(numbers, ",");
+    let result = 0;
+    let first = true;
+    for (part in parts) {
+      let n = part;
+      if (first) {
+        result = n;
+        first = false;
+      } else {
+        result = math_max(result, n);
+      }
+    }
+    return result;
+  }
+}
+
+skill FindMin {
+  description: "Find the minimum value from a comma-separated list of numbers",
+  params: [
+    { name: "numbers", schema: { "type": "string", "description": "Comma-separated numbers, e.g. \"3,1,4,1,5,9\"" } }
+  ],
+  impl: fun(numbers) {
+    let parts = string_split(numbers, ",");
+    let result = 0;
+    let first = true;
+    for (part in parts) {
+      let n = part;
+      if (first) {
+        result = n;
+        first = false;
+      } else {
+        result = math_min(result, n);
+      }
+    }
+    return result;
+  }
+}

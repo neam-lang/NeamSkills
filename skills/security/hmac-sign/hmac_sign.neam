@@ -1,0 +1,11 @@
+skill HMACSign {
+  description: "Generate an HMAC signature for a message using a secret key",
+  params: [
+    { name: "secret",    schema: { "type": "string", "description": "The secret key used to sign the message" } },
+    { name: "message",   schema: { "type": "string", "description": "The message content to sign" } },
+    { name: "algorithm", schema: { "type": "string", "description": "Hash algorithm to use: \"sha256\" or \"sha1\"" } }
+  ],
+  impl: fun(secret, message, algorithm) {
+    return crypto_hmac(algorithm, secret, message);
+  }
+}

@@ -1,0 +1,21 @@
+skill DaysFromNow {
+  description: "Calculate a future date by adding days to today's timestamp",
+  params: [
+    { name: "days", schema: { "type": "number", "description": "Number of days to add to today (use negative for past dates)" } }
+  ],
+  impl: fun(days) {
+    let now    = time_now();
+    let future = now + (days * 86400000);
+    return time_format(future, "%Y-%m-%d");
+  }
+}
+
+skill TimestampToDate {
+  description: "Convert a Unix timestamp (milliseconds) to a readable date string",
+  params: [
+    { name: "timestamp", schema: { "type": "number", "description": "Unix timestamp in milliseconds, e.g. 1711843200000" } }
+  ],
+  impl: fun(timestamp) {
+    return time_format(timestamp, "%Y-%m-%d %H:%M:%S");
+  }
+}

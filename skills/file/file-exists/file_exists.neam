@@ -1,0 +1,12 @@
+skill FileExists {
+  description: "Check whether a file exists at the given path",
+  params: [
+    { name: "path", schema: { "type": "string", "description": "Absolute or relative path to the file to check" } }
+  ],
+  impl: fun(path) {
+    if (file_exists(path)) {
+      return "true";
+    }
+    return "false";
+  }
+}

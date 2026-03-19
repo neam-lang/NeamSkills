@@ -1,0 +1,11 @@
+skill CSVParser {
+  description: "Parse a CSV string into rows. Returns each row as a comma-separated line.",
+  params: [
+    { name: "csv_text",  schema: { "type": "string", "description": "The raw CSV content as a string" } },
+    { name: "delimiter", schema: { "type": "string", "description": "Column delimiter, usually \",\"" } }
+  ],
+  impl: fun(csv_text, delimiter) {
+    let rows = string_split(csv_text, "\n");
+    return json_stringify(rows);
+  }
+}

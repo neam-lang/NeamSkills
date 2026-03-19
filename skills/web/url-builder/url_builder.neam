@@ -1,0 +1,15 @@
+skill URLBuilder {
+  description: "Build a URL by combining a base URL with a path and optional query string",
+  params: [
+    { name: "base",  schema: { "type": "string", "description": "The base URL, e.g. https://example.com" } },
+    { name: "path",  schema: { "type": "string", "description": "The path to append, e.g. /api/users" } },
+    { name: "query", schema: { "type": "string", "description": "Optional query string in key=value&key2=value2 format, or empty string" } }
+  ],
+  impl: fun(base, path, query) {
+    let url = base + path;
+    if (string_length(query) > 0) {
+      url = url + "?" + query;
+    }
+    return url;
+  }
+}

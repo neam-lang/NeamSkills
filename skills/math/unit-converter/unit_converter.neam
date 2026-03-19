@@ -1,0 +1,34 @@
+skill UnitConverter {
+  description: "Convert between common units: km/miles, kg/lbs, celsius/fahrenheit, meters/feet",
+  params: [
+    { name: "value",     schema: { "type": "number", "description": "The numeric value to convert" } },
+    { name: "from_unit", schema: { "type": "string", "description": "The source unit (km, miles, kg, lbs, celsius, fahrenheit, meters, feet)" } },
+    { name: "to_unit",   schema: { "type": "string", "description": "The target unit (km, miles, kg, lbs, celsius, fahrenheit, meters, feet)" } }
+  ],
+  impl: fun(value, from_unit, to_unit) {
+    let result = 0;
+
+    if (from_unit == "km" && to_unit == "miles") {
+      result = value * 0.621371;
+    } else if (from_unit == "miles" && to_unit == "km") {
+      result = value * 1.60934;
+    } else if (from_unit == "kg" && to_unit == "lbs") {
+      result = value * 2.20462;
+    } else if (from_unit == "lbs" && to_unit == "kg") {
+      result = value * 0.453592;
+    } else if (from_unit == "celsius" && to_unit == "fahrenheit") {
+      result = (value * 9 / 5) + 32;
+    } else if (from_unit == "fahrenheit" && to_unit == "celsius") {
+      result = (value - 32) * 5 / 9;
+    } else if (from_unit == "meters" && to_unit == "feet") {
+      result = value * 3.28084;
+    } else if (from_unit == "feet" && to_unit == "meters") {
+      result = value * 0.3048;
+    } else {
+      return "Error: Unknown conversion from " + from_unit + " to " + to_unit;
+    }
+
+    let rounded = math_round(result * 100) / 100;
+    return rounded + " " + to_unit;
+  }
+}

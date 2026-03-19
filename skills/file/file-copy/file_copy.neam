@@ -1,0 +1,14 @@
+skill FileCopy {
+  description: "Copy a file from one path to another",
+  params: [
+    { name: "source",      schema: { "type": "string", "description": "Path to the source file" } },
+    { name: "destination", schema: { "type": "string", "description": "Path where the file should be copied to" } }
+  ],
+  impl: fun(source, destination) {
+    if (!file_exists(source)) {
+      return "Error: source file not found: " + source;
+    }
+    file_copy(source, destination);
+    return "Copied: " + source + " -> " + destination;
+  }
+}
