@@ -10,7 +10,10 @@
     {
       "name": "neam-skills",
       "description": "Complete Neam language skill for Claude Code — covers 13 data types, agents, claw/forge agents, multi-agent orchestration, RAG, skills, tools, MCP, guards, budgets, OOP, modules, deployment, and 100+ built-in functions",
-      "source": ".",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/neam-lang/NeamSkills.git"
+      },
       "category": "development",
       "homepage": "https://github.com/neam-lang/NeamSkills"
     }
