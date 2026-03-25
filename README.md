@@ -8,7 +8,8 @@
   <a href="https://github.com/neam-lang/NeamSkills"><img src="https://img.shields.io/badge/skills-31+-00d2ff.svg?style=flat-square" alt="Skills: 31+"/></a>
   <a href="https://github.com/neam-lang/NeamSkills"><img src="https://img.shields.io/badge/built--in_functions-100+-a78bfa.svg?style=flat-square" alt="Built-in Functions: 100+"/></a>
   <a href="https://neam-lang.github.io/Neam-The-AI-Native-Programming-Language/"><img src="https://img.shields.io/badge/docs-28_chapters-green.svg?style=flat-square" alt="Docs: 28 chapters"/></a>
-  <a href="#install-from-github"><img src="https://img.shields.io/badge/Claude_Code-skill-ff6b35.svg?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Claude Code Skill"/></a>
+  <a href="#install-from-github"><img src="https://img.shields.io/badge/Claude_Code-plugin-ff6b35.svg?style=flat-square" alt="Claude Code Plugin"/></a>
+  <a href="#install-from-github"><img src="https://img.shields.io/badge/install-verified-brightgreen.svg?style=flat-square" alt="Install Verified"/></a>
 </p>
 
 <p align="center">
@@ -48,16 +49,17 @@ This gives Claude full knowledge of Neam — all 13 data types, agents, claw/for
 
 ### Option 1: Install as a Plugin (recommended)
 
-Add the NeamSkills marketplace and install:
+Add the NeamSkills marketplace and install — three commands:
 
 ```bash
-# In Claude Code, run:
 /plugin marketplace add neam-lang/NeamSkills
 /plugin install neam-skills@neam-lang-NeamSkills
 /reload-plugins
 ```
 
-The skill will auto-activate when you work with `.neam` files or ask about Neam.
+Once installed, the skill auto-activates when you work with `.neam` files or ask about Neam. You'll see it as `/claude-neam-programming` in your available skills.
+
+> **Verify it worked:** After `/reload-plugins`, you should see `neam-skills:claude-neam-programming` and `neam-skills:neam-programming` in your available skills.
 
 ### Option 2: Personal Skill (quick, works everywhere)
 
