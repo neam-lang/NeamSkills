@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "neam-lang-NeamSkills",
+  "description": "Neam programming language skills and plugins for Claude Code — complete language reference, AI agent development patterns, and 31 ready-made skills",
+  "owner": {
+    "name": "neam-lang",
+    "url": "https://github.com/neam-lang"
+  },
+  "plugins": [
+    {
+      "name": "neam-skills",
+      "description": "Complete Neam language skill for Claude Code — covers 13 data types, agents, claw/forge agents, multi-agent orchestration, RAG, skills, tools, MCP, guards, budgets, OOP, modules, deployment, and 100+ built-in functions",
+      "source": ".",
+      "category": "development",
+      "homepage": "https://github.com/neam-lang/NeamSkills"
+    }
+  ]
+}
