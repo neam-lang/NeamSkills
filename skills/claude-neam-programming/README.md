@@ -4,17 +4,23 @@
 
 ## Install
 
-Import this skill into Claude Code:
+### Plugin (recommended)
 
 ```bash
-/import skills/claude-neam-programming/SKILL.md
+/plugin marketplace add neam-lang/NeamSkills
+/plugin install neam-skills@neam-lang-NeamSkills
+/reload-plugins
 ```
 
-Or install from GitHub:
+### Personal Skill (quick)
 
 ```bash
-claude skill install neam-lang/NeamSkills/skills/claude-neam-programming
+mkdir -p ~/.claude/skills/claude-neam-programming
+curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md \
+  -o ~/.claude/skills/claude-neam-programming/SKILL.md
 ```
+
+Then use `/claude-neam-programming` in any session.
 
 ## What's Covered
 

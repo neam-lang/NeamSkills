@@ -1,0 +1,19 @@
+{
+  "name": "neam-skills",
+  "description": "Neam programming language skills for Claude Code — complete language reference, 31 ready-made skills, and AI agent development patterns",
+  "version": "2.0.0",
+  "author": {
+    "name": "neam-lang",
+    "url": "https://github.com/neam-lang"
+  },
+  "homepage": "https://github.com/neam-lang/NeamSkills",
+  "license": "MIT",
+  "keywords": [
+    "neam",
+    "ai-agents",
+    "programming-language",
+    "rag",
+    "multi-agent",
+    "claude-code"
+  ]
+}

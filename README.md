@@ -46,30 +46,39 @@ This gives Claude full knowledge of Neam — all 13 data types, agents, claw/for
 
 ## Install from GitHub
 
-You can import the skill directly from GitHub into any Claude Code session — no local clone required:
+### Option 1: Install as a Plugin (recommended)
 
-### Option 1: Direct Import (per session)
-
-```bash
-/import https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md
-```
-
-### Option 2: Auto-load via CLAUDE.md (every session)
-
-Add this line to your project's `CLAUDE.md` or `~/.claude/CLAUDE.md`:
-
-```markdown
-Import: https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md
-```
-
-### Option 3: Clone locally (offline access)
+Add the NeamSkills marketplace and install:
 
 ```bash
-git clone https://github.com/neam-lang/NeamSkills.git ~/.claude/skills/NeamSkills
-
-# Then in Claude Code:
-/import ~/.claude/skills/NeamSkills/skills/claude-neam-programming/SKILL.md
+# In Claude Code, run:
+/plugin marketplace add neam-lang/NeamSkills
+/plugin install neam-skills@neam-lang-NeamSkills
+/reload-plugins
 ```
+
+The skill will auto-activate when you work with `.neam` files or ask about Neam.
+
+### Option 2: Personal Skill (quick, works everywhere)
+
+```bash
+mkdir -p ~/.claude/skills/claude-neam-programming
+curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md \
+  -o ~/.claude/skills/claude-neam-programming/SKILL.md
+```
+
+Then use `/claude-neam-programming` in any Claude Code session.
+
+### Option 3: Project-level Skill (shared with team)
+
+```bash
+# From your project root:
+mkdir -p .claude/skills/claude-neam-programming
+curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md \
+  -o .claude/skills/claude-neam-programming/SKILL.md
+```
+
+Commit to version control — the skill is available to anyone who clones your repo.
 
 ---
 
@@ -198,6 +207,12 @@ emit MathBot.ask("What is 25 multiplied by 4?");
 
 ```
 NeamSkills/
+├── .claude-plugin/
+│   └── plugin.json           ← Plugin manifest (for /plugin install)
+├── .claude/
+│   └── skills/               ← Project-level skills (auto-discovered)
+│       └── claude-neam-programming/
+│           └── SKILL.md
 ├── assets/
 │   └── banner.svg
 ├── skills/
