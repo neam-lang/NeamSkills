@@ -2,22 +2,29 @@
 
 > Official skill library for the [Neam programming language](https://github.com/neam-lang/Neam)
 
-Neam is a compiled AI agent programming language. This repo gives you two things:
+Neam is a compiled AI agent programming language. This repo gives you three things:
 
-1. **`neam-programming` skill** — import into Claude Code so Claude can write Neam for you
-2. **31 ready-made `.neam` skills** — copy into your agents to add abilities instantly
+1. **`Claude-Neam-Programming-skill`** — comprehensive Claude Code skill covering the full Neam language (recommended)
+2. **`neam-programming` skill** — lightweight quick-reference skill for Claude Code
+3. **31 ready-made `.neam` skills** — copy into your agents to add abilities instantly
 
 ---
 
 ## New to Neam? Start Here
 
-Import the `neam-programming` skill into Claude Code:
+Import the comprehensive skill into Claude Code:
+
+```bash
+/import skills/claude-neam-programming/SKILL.md
+```
+
+This gives Claude full knowledge of Neam — all 13 data types, agents, claw/forge agents, multi-agent orchestration, RAG (8 strategies), skills, MCP, guards, policies, OOP (structs/traits/sealed types), modules, cloud deployment, and 100+ built-in functions.
+
+**Lightweight alternative** (quick reference only):
 
 ```bash
 /import skills/neam-programming/SKILL.md
 ```
-
-Now Claude knows the full Neam language — syntax, agents, RAG, budgets, deployment, and every built-in function. Just ask it to write Neam code.
 
 ---
 
@@ -118,7 +125,10 @@ emit MathBot.ask("What is 25 multiplied by 4?");
 ```
 NeamSkills/
 ├── skills/
-│   ├── neam-programming/     ← Claude Code skill (SKILL.md)
+│   ├── claude-neam-programming/ ← Full Claude Code skill (recommended)
+│   │   ├── SKILL.md
+│   │   └── README.md
+│   ├── neam-programming/        ← Lightweight Claude Code skill
 │   │   └── SKILL.md
 │   ├── utility/              ← Ready-made .neam skills
 │   │   ├── calculator/
@@ -156,10 +166,18 @@ NeamSkills/
 
 ---
 
+## Upcoming Skills
+
+- **Claude-Neam-special_agents-skill** — Deep coverage of specialized agent patterns: cognitive agents, voice agents, A2A protocol, advanced orchestration, and production deployment patterns
+
+---
+
 ## Links
 
 - [Neam Language](https://github.com/neam-lang/Neam) — compiler, runtime, REPL
-- [Neam Documentation](https://github.com/neam-lang/Neam/blob/main/README.md)
+- [Neam Documentation](https://neam-lang.github.io/Neam-The-AI-Native-Programming-Language/) — full language book (28 chapters)
+- [Smart Support Claw](https://github.com/neam-lang/smart_support_claw) — production claw agent example
+- [NeamForge Site Generator](https://github.com/samsuljahith/neamforge-site-generator) — forge agent example
 
 ---
 
