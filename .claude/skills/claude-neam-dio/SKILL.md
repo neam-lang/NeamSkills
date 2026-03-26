@@ -1,8 +1,7 @@
 ---
-name: Claude-Neam-DIO-skill
+name: claude-neam-dio
 description: Comprehensive skill for building Intelligent Data Organizations with Neam. Covers the Data Intelligent Orchestrator (DIO), all 14 specialist agents, 4-layer architecture, Agent.MD domain knowledge, RACI accountability, 8 auto-patterns, 3 coordination modes, infrastructure profiles, error handling, security, and DataSims evaluation. Install this skill so Claude can write production-grade Neam DIO programs.
-origin: neam-skills
-version: "1.0.0"
+version: 1.0.0
 ---
 
 # Claude Neam DIO Skill
