@@ -30,81 +30,81 @@ Neam is a compiled AI agent programming language. This repo gives you four thing
 
 ## New to Neam? Start Here
 
-Import the comprehensive skill into Claude Code:
+Pick the skills you need and install them. Both skills auto-activate — Claude uses them automatically when you work with `.neam` files or DIO agents.
 
-```bash
-/import skills/claude-neam-programming/SKILL.md
-```
-
-This gives Claude full knowledge of Neam — all 13 data types, agents, claw/forge agents, multi-agent orchestration, RAG (8 strategies), skills, MCP, guards, policies, OOP (structs/traits/sealed types), modules, cloud deployment, and 100+ built-in functions.
-
-**Building data pipelines or ML systems?** Import the DIO skill:
-
-```bash
-/import skills/claude-neam-dio/SKILL.md
-```
-
-This gives Claude full knowledge of the DIO ecosystem — 14 specialist agents, DIO orchestrator (auto/config/hybrid modes), 4-layer architecture, Agent.MD, RACI accountability, infrastructure profiles, and DataSims evaluation.
-
-**Lightweight alternative** (quick reference only):
-
-```bash
-/import skills/neam-programming/SKILL.md
-```
+| Skill | What it covers | Size |
+|-------|---------------|------|
+| **`claude-neam-programming`** | Core Neam language — 13 types, agents, claw/forge agents, RAG, guards, OOP, deployment, 100+ built-ins | 1,394 lines |
+| **`claude-neam-dio`** | DIO ecosystem — 14 specialist agents, orchestrator, RACI, infrastructure profiles, DataSims | 1,561 lines |
+| **`neam-programming`** | Lightweight quick-reference for basic Neam | 623 lines |
 
 ---
 
-## Install from GitHub
+## Setup Instructions
 
-### Option 1: Install as a Plugin (recommended)
+### Option 1: Project-Level Skill (recommended for teams)
 
-Add the NeamSkills marketplace and install — three commands:
+Copy the skills into your project's `.claude/skills/` directory. They auto-activate when Claude Code opens the project.
 
-```bash
-/plugin marketplace add neam-lang/NeamSkills
-/plugin install neam-skills@neam-lang-NeamSkills
-/reload-plugins
-```
-
-Once installed, the skills auto-activate when you work with `.neam` files or ask about Neam/DIO. You'll see them in your available skills.
-
-> **Verify it worked:** After `/reload-plugins`, you should see `neam-skills:claude-neam-programming`, `neam-skills:claude-neam-dio`, and `neam-skills:neam-programming` in your available skills.
-
-### Option 2: Personal Skill (quick, works everywhere)
-
-**Neam Language skill:**
+**Install both skills:**
 
 ```bash
-mkdir -p ~/.claude/skills/claude-neam-programming
+# From your project root:
+mkdir -p .claude/skills/claude-neam-programming .claude/skills/claude-neam-dio
+
 curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md \
-  -o ~/.claude/skills/claude-neam-programming/SKILL.md
-```
+  -o .claude/skills/claude-neam-programming/SKILL.md
 
-**DIO Data Intelligence skill:**
-
-```bash
-mkdir -p ~/.claude/skills/claude-neam-dio
 curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-dio/SKILL.md \
-  -o ~/.claude/skills/claude-neam-dio/SKILL.md
+  -o .claude/skills/claude-neam-dio/SKILL.md
 ```
 
-Then use `/claude-neam-programming` or `/claude-neam-dio` in any Claude Code session.
+Commit `.claude/skills/` to version control — the skills are available to anyone who clones your repo.
 
-### Option 3: Project-level Skill (shared with team)
+**Verify:** Run `/claude-neam-programming` or `/claude-neam-dio` in Claude Code. The full skill content should load.
+
+**Install just one:**
 
 ```bash
-# From your project root — Neam Language skill:
+# Neam language only:
 mkdir -p .claude/skills/claude-neam-programming
 curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md \
   -o .claude/skills/claude-neam-programming/SKILL.md
 
-# DIO Data Intelligence skill:
+# DIO only:
 mkdir -p .claude/skills/claude-neam-dio
 curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-dio/SKILL.md \
   -o .claude/skills/claude-neam-dio/SKILL.md
 ```
 
-Commit to version control — the skills are available to anyone who clones your repo.
+### Option 2: Personal Skill (works across all projects)
+
+Install to `~/.claude/skills/` so the skills are available in every Claude Code session, regardless of project.
+
+```bash
+# Neam Language skill:
+mkdir -p ~/.claude/skills/claude-neam-programming
+curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md \
+  -o ~/.claude/skills/claude-neam-programming/SKILL.md
+
+# DIO Data Intelligence skill:
+mkdir -p ~/.claude/skills/claude-neam-dio
+curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-dio/SKILL.md \
+  -o ~/.claude/skills/claude-neam-dio/SKILL.md
+```
+
+**Verify:** Start a new Claude Code session and run `/claude-neam-programming` or `/claude-neam-dio`.
+
+### Option 3: Direct Import (one-time use)
+
+If you just want the skill for the current session without installing:
+
+```bash
+/import skills/claude-neam-programming/SKILL.md
+/import skills/claude-neam-dio/SKILL.md
+```
+
+> **Note:** Direct imports only last for the current session. Use Option 1 or 2 for persistent access.
 
 ---
 
