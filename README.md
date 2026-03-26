@@ -352,46 +352,24 @@ NeamSkills/
 │           └── SKILL.md
 ├── assets/
 │   └── banner.svg
-├── skills/
+├── skills/                      ← Claude Code skills (plugin auto-discovered)
 │   ├── claude-neam-programming/ ← Full Claude Code skill (recommended)
 │   │   ├── SKILL.md
 │   │   └── README.md
 │   ├── claude-neam-dio/         ← DIO/Data Intelligence skill
 │   │   ├── SKILL.md
 │   │   └── README.md
-│   ├── neam-programming/        ← Lightweight Claude Code skill
-│   │   └── SKILL.md
-│   ├── utility/              ← Ready-made .neam skills
-│   │   ├── calculator/
-│   │   ├── uuid-gen/
-│   │   ├── timer/
-│   │   ├── text-tools/
-│   │   └── hasher/
+│   └── neam-programming/        ← Lightweight Claude Code skill
+│       └── SKILL.md
+├── neam-skills-library/         ← Ready-made .neam skills (copy into agents)
+│   ├── utility/
 │   ├── web/
-│   │   ├── web-fetch/
-│   │   ├── http-request/
-│   │   └── url-builder/
 │   ├── data/
-│   │   ├── json-tools/
-│   │   ├── csv-parser/
-│   │   └── data-counter/
 │   ├── file/
-│   │   ├── file-reader/
-│   │   ├── file-writer/
-│   │   ├── file-exists/
-│   │   └── file-copy/
 │   ├── math/
-│   │   ├── unit-converter/
-│   │   └── statistics/
 │   ├── security/
-│   │   ├── password-validator/
-│   │   └── hmac-sign/
 │   ├── development/
-│   │   ├── log-formatter/
-│   │   └── json-validator/
 │   └── productivity/
-│       ├── word-counter/
-│       └── date-calculator/
 └── README.md
 ```
 
