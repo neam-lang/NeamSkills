@@ -18,5 +18,5 @@
     "dio",
     "data-intelligence"
   ],
-  "skills": "./skills/"
+  "skills": ["./skills/claude-neam-programming/", "./skills/claude-neam-dio/", "./skills/neam-programming/"]
 }
