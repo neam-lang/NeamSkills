@@ -1,7 +1,7 @@
 {
   "name": "neam-skills",
-  "description": "Neam programming language skills for Claude Code — complete language reference, 31 ready-made skills, and AI agent development patterns",
-  "version": "2.0.0",
+  "description": "Neam programming language skills for Claude Code — complete language reference, DIO data intelligence, 31 ready-made skills, and AI agent development patterns",
+  "version": "3.0.0",
   "author": {
     "name": "neam-lang",
     "url": "https://github.com/neam-lang"
@@ -14,6 +14,9 @@
     "programming-language",
     "rag",
     "multi-agent",
-    "claude-code"
-  ]
+    "claude-code",
+    "dio",
+    "data-intelligence"
+  ],
+  "skills": "./skills/"
 }

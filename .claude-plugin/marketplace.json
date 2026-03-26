@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "neam-lang-NeamSkills",
-  "description": "Neam programming language skills and plugins for Claude Code — complete language reference, AI agent development patterns, and 31 ready-made skills",
+  "description": "Neam programming language skills and plugins for Claude Code — complete language reference, DIO data intelligence (14 agents + orchestrator), AI agent development patterns, and 31 ready-made skills",
   "owner": {
     "name": "neam-lang",
     "url": "https://github.com/neam-lang"
