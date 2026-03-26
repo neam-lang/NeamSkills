@@ -19,11 +19,12 @@
 
 ---
 
-Neam is a compiled AI agent programming language. This repo gives you three things:
+Neam is a compiled AI agent programming language. This repo gives you four things:
 
 1. **`Claude-Neam-Programming-skill`** — comprehensive Claude Code skill covering the full Neam language (recommended)
-2. **`neam-programming` skill** — lightweight quick-reference skill for Claude Code
-3. **31 ready-made `.neam` skills** — copy into your agents to add abilities instantly
+2. **`Claude-Neam-DIO-skill`** — comprehensive skill for building Intelligent Data Organizations with Neam's 14 agents + DIO orchestrator
+3. **`neam-programming` skill** — lightweight quick-reference skill for Claude Code
+4. **31 ready-made `.neam` skills** — copy into your agents to add abilities instantly
 
 ---
 
@@ -36,6 +37,14 @@ Import the comprehensive skill into Claude Code:
 ```
 
 This gives Claude full knowledge of Neam — all 13 data types, agents, claw/forge agents, multi-agent orchestration, RAG (8 strategies), skills, MCP, guards, policies, OOP (structs/traits/sealed types), modules, cloud deployment, and 100+ built-in functions.
+
+**Building data pipelines or ML systems?** Import the DIO skill:
+
+```bash
+/import skills/claude-neam-dio/SKILL.md
+```
+
+This gives Claude full knowledge of the DIO ecosystem — 14 specialist agents, DIO orchestrator (auto/config/hybrid modes), 4-layer architecture, Agent.MD, RACI accountability, infrastructure profiles, and DataSims evaluation.
 
 **Lightweight alternative** (quick reference only):
 
@@ -57,11 +66,13 @@ Add the NeamSkills marketplace and install — three commands:
 /reload-plugins
 ```
 
-Once installed, the skill auto-activates when you work with `.neam` files or ask about Neam. You'll see it as `/claude-neam-programming` in your available skills.
+Once installed, the skills auto-activate when you work with `.neam` files or ask about Neam/DIO. You'll see them in your available skills.
 
-> **Verify it worked:** After `/reload-plugins`, you should see `neam-skills:claude-neam-programming` and `neam-skills:neam-programming` in your available skills.
+> **Verify it worked:** After `/reload-plugins`, you should see `neam-skills:claude-neam-programming`, `neam-skills:claude-neam-dio`, and `neam-skills:neam-programming` in your available skills.
 
 ### Option 2: Personal Skill (quick, works everywhere)
+
+**Neam Language skill:**
 
 ```bash
 mkdir -p ~/.claude/skills/claude-neam-programming
@@ -69,22 +80,55 @@ curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/clau
   -o ~/.claude/skills/claude-neam-programming/SKILL.md
 ```
 
-Then use `/claude-neam-programming` in any Claude Code session.
+**DIO Data Intelligence skill:**
+
+```bash
+mkdir -p ~/.claude/skills/claude-neam-dio
+curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-dio/SKILL.md \
+  -o ~/.claude/skills/claude-neam-dio/SKILL.md
+```
+
+Then use `/claude-neam-programming` or `/claude-neam-dio` in any Claude Code session.
 
 ### Option 3: Project-level Skill (shared with team)
 
 ```bash
-# From your project root:
+# From your project root — Neam Language skill:
 mkdir -p .claude/skills/claude-neam-programming
 curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-programming/SKILL.md \
   -o .claude/skills/claude-neam-programming/SKILL.md
+
+# DIO Data Intelligence skill:
+mkdir -p .claude/skills/claude-neam-dio
+curl -sL https://raw.githubusercontent.com/neam-lang/NeamSkills/main/skills/claude-neam-dio/SKILL.md \
+  -o .claude/skills/claude-neam-dio/SKILL.md
 ```
 
-Commit to version control — the skill is available to anyone who clones your repo.
+Commit to version control — the skills are available to anyone who clones your repo.
 
 ---
 
-## Quick Example
+## Quick Examples
+
+### DIO: Autonomous Data Lifecycle
+
+```neam
+budget B { cost: 500.00, tokens: 2000000 }
+infrastructure_profile Infra { data_warehouse: { platform: "postgres" } }
+
+dio agent MyDIO {
+    mode: "config",
+    task: "Predict customer churn, identify drivers, deploy with monitoring",
+    infrastructure: Infra,
+    provider: "openai",
+    model: "gpt-4o",
+    budget: B
+}
+
+print(dio_solve(MyDIO, "full_system"));
+```
+
+### Skills: Add Abilities to Agents
 
 ```neam
 // 1. Copy a skill from this repo into your .neam file
@@ -117,6 +161,81 @@ emit MathBot.ask("What is 25 multiplied by 4?");
 
 ---
 
+## Using Claude-Neam-DIO
+
+The **Claude-Neam-DIO** skill teaches Claude to build autonomous data lifecycle systems using Neam's 14 specialist agents and the DIO orchestrator. It is based on [The Intelligent Data Organization with Neam](https://neam-lang.github.io/The-Intelligent-Data-Organization-with-Neam/) (30-chapter eBook) and verified against 22/22 passing E2E tests.
+
+### When to use it
+
+- Building data pipelines, warehouses, or ML systems with multiple agent roles
+- Orchestrating end-to-end workflows: requirements -> ingestion -> transformation -> modeling -> deployment -> monitoring
+- Working with infrastructure profiles (Snowflake, BigQuery, Databricks, Redshift, etc.)
+- Needing RACI accountability, quality gates, or compliance automation (GDPR/CCPA)
+- Writing `dio agent`, `datascientist agent`, `causal agent`, `datatest agent`, or any of the 14 DIO agent types
+
+### What it covers
+
+| Topic | Details |
+|-------|---------|
+| **14 Specialist Agents** | Full syntax, verified code examples, required fields, native functions |
+| **DIO Orchestrator** | 3 modes (`auto`/`config`/`hybrid`), 8 auto-patterns, `dio_solve`/`dio_plan` |
+| **Agent.MD** | 6 sections for encoding domain knowledge (improves model AUC by 7.7%) |
+| **RACI Accountability** | Runtime-enforced responsibility assignment (2 invariants) |
+| **3 Coordination Modes** | Centralized RACI, Swarm Stigmergy, Evolutionary GA |
+| **Infrastructure Profiles** | 10 platforms abstracted so same code runs anywhere |
+| **Error Handling** | 4-tier self-healing: retry -> adapt -> human review -> halt |
+| **Security** | 6-layer defense-in-depth, zero-trust, phase-gated permissions |
+| **DataSims** | Evaluation framework: 7-dimension scoring, ablation studies |
+| **Troubleshooting** | 14 common errors with exact fixes |
+
+### Example: Full production DIO program
+
+```neam
+budget DIOBudget { cost: 500.00, tokens: 2000000 }
+budget AgentBudget { cost: 50.00, tokens: 500000 }
+
+infrastructure_profile SimShopInfra {
+    data_warehouse: {
+        platform: "postgres",
+        connection: env("SIMSHOP_PG_URL"),
+        schemas: ["simshop_oltp", "simshop_dw", "ml_features"]
+    },
+    data_science: { mlflow: { uri: env("MLFLOW_TRACKING_URI") } },
+    governance: { regulations: ["GDPR"], pii_columns: ["email", "phone"] }
+}
+
+databa agent ChurnBA { provider: "openai", model: "gpt-4o", budget: AgentBudget }
+sql_connection SimShopDB { platform: "postgres", connection: env("SIMSHOP_PG_URL"), database: "simshop" }
+analyst agent SimShopAnalyst { provider: "openai", model: "gpt-4o-mini", connections: [SimShopDB], budget: AgentBudget }
+datascientist agent ChurnDS { provider: "openai", model: "gpt-4o", budget: AgentBudget }
+causal agent ChurnCausal { provider: "openai", model: "o3-mini", budget: AgentBudget }
+datatest agent ChurnTester { provider: "openai", model: "gpt-4o", budget: AgentBudget }
+mlops agent ChurnMLOps { provider: "openai", model: "gpt-4o", budget: AgentBudget }
+
+dio agent SimShopDIO {
+    mode: "config",
+    task: "Predict which customers will churn in 90 days, identify drivers, deploy with monitoring",
+    infrastructure: SimShopInfra,
+    agent_md: "./agents/simshop_dio.agent.md",
+    provider: "openai",
+    model: "gpt-4o",
+    budget: DIOBudget
+}
+
+print(dio_solve(SimShopDIO, "full_system"));
+```
+
+### Relationship with Claude-Neam-Programming
+
+| Skill | Scope | Use when |
+|-------|-------|----------|
+| `Claude-Neam-Programming` | Core language (types, OOP, RAG, guards, deployment) | Writing any `.neam` program |
+| `Claude-Neam-DIO` | Data intelligence (14 agents, DIO, RACI, infrastructure) | Building data/ML systems with the DIO ecosystem |
+
+Both skills are complementary. The DIO skill assumes knowledge of core Neam syntax covered by the Programming skill.
+
+---
+
 ## Claude Code Skills
 
 ### `Claude-Neam-Programming-skill` (Recommended)
@@ -139,6 +258,20 @@ emit MathBot.ask("What is 25 multiplied by 4?");
 | **Cloud Config** | neam.toml, state backends, LLM gateway, telemetry, secrets management |
 | **Built-in Functions** | 100+ functions: math, string, list, map, file, HTTP, crypto, time, regex, async |
 | **Testing** | Test blocks, 9 assertion types |
+
+### `Claude-Neam-DIO-skill` (Data Intelligence)
+
+> **Complete DIO reference** — 14 specialist agents + DIO orchestrator for data lifecycle management
+
+| Area | Coverage |
+|------|----------|
+| **14 Agents** | Data, ETL, Migration, DataOps, Governance, Modeling, Analyst, DataScientist, Causal, MLOps, Data-BA, DataTest, Deployment, Forge |
+| **DIO Orchestrator** | 3 operating modes (auto/config/hybrid), 8 auto-patterns, dynamic crew formation |
+| **Architecture** | 4-layer architecture, Agent.MD domain knowledge, RACI accountability |
+| **Coordination** | Centralized RACI, Swarm Stigmergy, Evolutionary GA |
+| **Infrastructure** | 10 platform profiles (Snowflake, BigQuery, Databricks, Redshift, etc.) |
+| **Quality** | Error handling (4-tier self-healing), security (6-layer defense-in-depth) |
+| **Evaluation** | DataSims framework, ablation studies, 7-dimension scoring |
 
 ### `neam-programming` (Lightweight)
 
@@ -213,12 +346,17 @@ NeamSkills/
 │   └── plugin.json           ← Plugin manifest (for /plugin install)
 ├── .claude/
 │   └── skills/               ← Project-level skills (auto-discovered)
-│       └── claude-neam-programming/
+│       ├── claude-neam-programming/
+│       │   └── SKILL.md
+│       └── claude-neam-dio/
 │           └── SKILL.md
 ├── assets/
 │   └── banner.svg
 ├── skills/
 │   ├── claude-neam-programming/ ← Full Claude Code skill (recommended)
+│   │   ├── SKILL.md
+│   │   └── README.md
+│   ├── claude-neam-dio/         ← DIO/Data Intelligence skill
 │   │   ├── SKILL.md
 │   │   └── README.md
 │   ├── neam-programming/        ← Lightweight Claude Code skill
@@ -264,6 +402,7 @@ NeamSkills/
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `Claude-Neam-Programming-skill` | Available | Full Neam language reference (1,394 lines) |
+| `Claude-Neam-DIO-skill` | Available | DIO orchestrator, 14 specialist agents, data intelligence |
 | `Claude-Neam-special_agents-skill` | Planned | Cognitive agents, voice agents, A2A protocol, advanced orchestration |
 
 ---
@@ -272,6 +411,8 @@ NeamSkills/
 
 - [Neam Language](https://github.com/neam-lang/Neam) — compiler, runtime, REPL
 - [Neam Documentation](https://neam-lang.github.io/Neam-The-AI-Native-Programming-Language/) — full language book (28 chapters)
+- [The Intelligent Data Organization](https://neam-lang.github.io/The-Intelligent-Data-Organization-with-Neam/) — DIO eBook (30 chapters)
+- [DataSims](https://github.com/neam-lang/Data-Sims) — evaluation framework for DIO programs
 - [Smart Support Claw](https://github.com/neam-lang/smart_support_claw) — production claw agent example
 - [NeamForge Site Generator](https://github.com/samsuljahith/neamforge-site-generator) — forge agent example
 
